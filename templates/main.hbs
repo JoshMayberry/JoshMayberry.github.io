@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{{title}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="./main.css">
+		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+	</head>
+	<body class="mdc-typography">
+		<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+			<div class="mdc-top-app-bar__row">
+				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+					<a id="logo" href="/index.html">
+						<img src="https://avatars.githubusercontent.com/u/11482252?s=96&amp;v=4" alt="@JoshMayberry" size="32" height="32" width="32">
+					</a>
+					<span id="page-title" class="mdc-top-app-bar__title">{{name}}</span>
+				</section>
+				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+					<div id="navbar" role="toolbar">
+						<div class="mdc-tab-bar" role="tablist">
+							<div class="mdc-tab-scroller">
+								<div class="mdc-tab-scroller__scroll-area">
+									<div class="mdc-tab-scroller__scroll-content">
+										{{#each pages as |page|}}
+											<button class="mdc-tab {{#if page.active}}mdc-tab--active{{/if}}" role="tab" {{#if page.active}}aria-selected="true" tabindex="0"{{else}}tabindex="-1"{{/if}}>
+												<span class="mdc-tab__content">
+													<span class="mdc-tab__text-label">{{page.name}}</span>
+												</span>
+												<span class="mdc-tab-indicator {{#if page.active}}mdc-tab-indicator--active{{/if}}">
+													<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+												</span>
+												<span class="mdc-tab__ripple"></span>
+											</button>
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button id="menu-button" class="mdc-button mdc-button--touch">
+						<span class="mdc-button__ripple"></span>
+						<i class="material-icons mdc-button__icon mdc-top-app-bar__navigation-icon">menu</i>
+					</button>
+				</section>
+			</div>
+		</header>
+
+		<aside class="mdc-drawer mdc-drawer--modal">
+			<div class="mdc-drawer__content">
+				<nav class="mdc-list">
+					{{#each pages as |page|}}
+						<a id="{{page.id}}" class="mdc-list-item {{#if page.active}}mdc-list-item--activated{{/if}}" href="#" aria-current="page">
+							<span class="mdc-list-item__ripple"></span>
+							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">{{page.icon}}</i>
+							<span class="mdc-list-item__text">{{page.name}}</span>
+						</a>
+					{{/each}}
+				</nav>
+			</div>
+		</aside>
+		<div class="mdc-drawer-scrim"></div>
+
+		<div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+			<main class="main-content">
+				{{{body}}}
+			</main>
+		</div>
+
+		<script src="./main.js"></script>
+	</body>
+</html>
