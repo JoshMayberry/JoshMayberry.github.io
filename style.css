@@ -1,6 +1,5 @@
-.logo {
-  width: 32px;
-  height: 32px;
+body {
+  margin: 0;
 }
 
 #menu-button {
@@ -12,15 +11,6 @@
    *
    *     The ripple is still rectangular. Can it be contained in the circle?
    */
-  /*
-   * Change the ripple color so it is visible
-   *
-   * GPT4 Prompt
-   *     The menu button now looks like this: ... The button is also initialized in the js so the ripple effect works- but the ripple is purple on a purple background.
-   *     Can you make the ripple visible?
-   */
-}
-#menu-button button {
   position: relative;
   width: 40px;
   height: 40px;
@@ -29,12 +19,19 @@
   border-radius: 50%;
   overflow: hidden;
 }
-#menu-button button .mdc-button__icon {
+#menu-button .mdc-button__icon {
   margin: 0;
   z-index: 1;
 }
-#menu-button button .mdc-button__ripple {
+#menu-button .mdc-button__ripple {
   z-index: 0;
+  /*
+   * Change the ripple color so it is visible
+   *
+   * GPT4 Prompt
+   *     The menu button now looks like this: ... The button is also initialized in the js so the ripple effect works- but the ripple is purple on a purple background.
+   *     Can you make the ripple visible?
+   */
 }
 #menu-button .mdc-button__ripple::before, #menu-button .mdc-button__ripple::after {
   background-color: white;
@@ -42,7 +39,7 @@
 
 #logo {
   /*
-   * Make teh logo direct to the home page
+   * Make the logo direct to the home page
    *
    * GPT4 Prompt
    *     The icon now looks like this: ... Update the icon to be a button that links to the main page when clicked.
@@ -50,13 +47,28 @@
    *     The logo is now floating up by a few pixels because of the anchor tag.
    *     Setting the anchor tag's height to 32px solves it, but I would rather actually solve the problem
    */
-}
-#logo a {
   display: inline-flex;
   align-items: center;
 }
 #logo img {
   vertical-align: middle;
+}
+
+#navbar {
+  /*
+   * Style the navbar
+   *
+   * GPT4 Prompt
+   *     The navba now looks like this: ... It is currently just a list of anchor tags. Use a MDCTabBar instead.
+   *
+   *     Make the selected item's text white and the underline white.
+   */
+}
+#navbar .mdc-tab__text-label {
+  color: white;
+}
+#navbar .mdc-tab-indicator--active .mdc-tab-indicator__content--underline {
+  border-color: white;
 }
 
 /*
@@ -66,5 +78,10 @@
  *     If the page is less than 1340px wide, instead of showing the navbar, have the menu icon that will make the MDCDrawer pop out with the available options (Otherwise, do not show that button).
  *     To do this, only use CSS Media Queries (The navbar/menu icon can be hidden using display: none).
  */
+@media screen and (max-width: 650px) {
+  #navbar {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
