@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Joshua Mayberry</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="./style.css">
+		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+		<script src="./index.js"></script>
+	</head>
+	<body class="mdc-typography">
+		<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+			<div class="mdc-top-app-bar__row">
+				<!-- TODO: Combine left and right sections -->
+				<section id="logo" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+					<a href="/index.html">
+						<img src="https://avatars.githubusercontent.com/u/11482252?s=96&amp;v=4" alt="@JoshMayberry" size="32" height="32" width="32">
+					</a>
+				</section>
+
+				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+					<span id="page-title" class="mdc-top-app-bar__title">Main</span>
+				</section>
+
+				<section id="navbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+					<a class="mdc-top-app-bar__action-item" href="#">Home</a>
+					<a class="mdc-top-app-bar__action-item" href="#">About</a>
+					<a class="mdc-top-app-bar__action-item" href="#">Portfolio</a>
+					<a class="mdc-top-app-bar__action-item" href="#">Contact</a>
+				</section>
+
+				<section id="menu-button" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-touch-target-wrapper">
+					<button class="mdc-button mdc-button--touch">
+						<span class="mdc-button__ripple"></span>
+						<i class="material-icons mdc-button__icon mdc-top-app-bar__navigation-icon">menu</i>
+					</button>
+				</section>
+			</div>
+		</header>
+
+		<aside class="mdc-drawer mdc-drawer--modal">
+			<div class="mdc-drawer__content">
+				<nav class="mdc-list">
+					<a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+						<span class="mdc-list-item__text">Home</span>
+					</a>
+					<a class="mdc-list-item" href="#">
+						<span class="mdc-list-item__text">About</span>
+					</a>
+					<a class="mdc-list-item" href="#">
+						<span class="mdc-list-item__text">Portfolio</span>
+					</a>
+					<a class="mdc-list-item" href="#">
+						<span class="mdc-list-item__text">Contact</span>
+					</a>
+				</nav>
+			</div>
+  			<div class="mdc-drawer__scrim"></div>
+		</aside>
+
+		<div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+			<main class="main-content">
+				<!-- Main content goes here -->
+			</main>
+		</div>
+	</body>
+</html>

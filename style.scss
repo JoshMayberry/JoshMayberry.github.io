@@ -1,0 +1,87 @@
+.logo {
+	width: 32px;
+	height: 32px;
+}
+
+#menu-button {
+	/*
+	 * Make the menu button circular
+	 *
+	 * GPT4 Prompt
+	 *     The menu button now looks like this: ... Style the button to use a circle instead of a rectangle, like the mdc-fab--mini
+	 *
+	 *     The ripple is still rectangular. Can it be contained in the circle?
+	 */
+	& button {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		min-width: 40px;
+		padding: 0;
+		border-radius: 50%;
+		overflow: hidden;
+
+		.mdc-button__icon {
+			margin: 0;
+			z-index: 1;
+		}
+
+		.mdc-button__ripple {
+			z-index: 0;
+		}
+	}
+
+	/*
+	 * Change the ripple color so it is visible
+	 *
+	 * GPT4 Prompt
+	 *     The menu button now looks like this: ... The button is also initialized in the js so the ripple effect works- but the ripple is purple on a purple background.
+	 *     Can you make the ripple visible?
+	 */
+	& .mdc-button__ripple {
+		&::before,
+		&::after {
+			background-color: white;
+		}
+	}
+}
+
+#logo {
+	/*
+	 * Make teh logo direct to the home page
+	 *
+	 * GPT4 Prompt
+	 *     The icon now looks like this: ... Update the icon to be a button that links to the main page when clicked.
+	 *
+	 *     The logo is now floating up by a few pixels because of the anchor tag.
+	 *     Setting the anchor tag's height to 32px solves it, but I would rather actually solve the problem
+	 */
+
+	& a {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	& img {
+		vertical-align: middle;
+	}
+}
+
+/*
+ * Toggle between mobile and desktop
+ *
+ * GPT4 Prompt
+ *     If the page is less than 1340px wide, instead of showing the navbar, have the menu icon that will make the MDCDrawer pop out with the available options (Otherwise, do not show that button).
+ *     To do this, only use CSS Media Queries (The navbar/menu icon can be hidden using display: none).
+ */
+// @media screen and (max-width: 650px) {
+// 	#navbar {
+// 		display: none;
+// 	}
+// }
+
+// @media screen and (min-width: 651px) {
+// 	#menu-button {
+// 		display: none;
+// 	}
+// }
