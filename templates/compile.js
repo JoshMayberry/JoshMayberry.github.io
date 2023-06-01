@@ -11,54 +11,92 @@
  * 
  *     I have handlebars installed.
  *     Combine the 2 steps into a single node program. I only want to run 1 thing to compile the pages.
+ * 
+ *     I want the body section to be another handlebars file.
  */
 
 const fs = require("fs");
 const Handlebars = require("handlebars");
 
 const source = fs.readFileSync("./main.hbs", "utf8");
-const template = Handlebars.compile(source);
 
 const pageList = [
 	{
 		name: "Home",
-		id: "index",
+		slug: "index",
 		icon: "home",
-		body: "<h1>TODO: Home</h1>",
 	},
 	{
-		name: "About",
-		id: "about",
-		icon: "info",
-		body: "<h1>TODO: About</h1>",
+		name: "Resume",
+		slug: "resume",
+		icon: "description",
 	},
 	{
 		name: "Portfolio",
-		id: "portfolio",
+		slug: "portfolio",
 		icon: "work",
-		body: "<h1>TODO: Portfolio</h1>",
+	},
+	{
+		name: "About",
+		slug: "about",
+		icon: "info",
 	},
 	{
 		name: "Contact",
-		id: "contact",
+		slug: "contact",
 		icon: "mail",
-		body: "<h1>TODO: Contact</h1>",
+		linkedin_posts: [
+			{
+				title: "Buckle Up!",
+				urn: "7067186262041907200",
+			},
+			{
+				title: "Automation",
+				urn: "7068968961165426688",
+			},
+			{
+				title: "Unfamiliar Territory",
+				urn: "7067535011658280960",
+			},
+			{
+				title: "Power Query",
+				urn: "7070062918557429760",
+			},
+			{
+				title: "SQL",
+				urn: "7067896672114106369",
+			},
+			{
+				title: "Mentoring",
+				urn: "7066840243143905280",
+			},
+			{
+				title: "JavaScript",
+				urn: "7069350380333125633",
+			},
+			{
+				title: "Python",
+				urn: "7069700427809734656",
+			},
+		],
 	},
 ];
 
 for (const [index, page] of pageList.entries()) {
-	console.log(`Compiling ${page.id}`);
+	console.log(`Compiling ${page.slug}`);
+
+	const bodySource = fs.readFileSync(`./${page.slug}.hbs`, "utf8");
+	Handlebars.registerPartial("body", bodySource);
+
+	const template = Handlebars.compile(source);
 	const html = template({
+		...page,
 		title: `Joshua Mayberry: ${page.name}`,
-		name: page.name,
 		pages: pageList.map((item, i) => ({
-			name: item.name,
-			id: item.id,
-			icon: item.icon,
+			...item,
 			active: (i === index),
 		})),
-		body: page.body,
 	});
 
-	fs.writeFileSync(`../${page.id}.html`, html);
+	fs.writeFileSync(`../${page.slug}.html`, html);
 }

@@ -5,8 +5,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="./main.css">
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="stylesheet" href="./styles/{{id}}.css">
+    	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1"></script>
 		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 	</head>
@@ -26,7 +29,7 @@
 								<div class="mdc-tab-scroller__scroll-area">
 									<div class="mdc-tab-scroller__scroll-content">
 										{{#each pages as |page|}}
-											<button class="mdc-tab {{#if page.active}}mdc-tab--active{{/if}}" role="tab" {{#if page.active}}aria-selected="true" tabindex="0"{{else}}tabindex="-1"{{/if}}>
+											<button class="mdc-tab {{#if page.active}}mdc-tab--active{{/if}}" role="tab" data-slug="{{page.slug}}" {{#if page.active}}aria-selected="true" tabindex="0"{{else}}tabindex="-1"{{/if}}>
 												<span class="mdc-tab__content">
 													<span class="mdc-tab__text-label">{{page.name}}</span>
 												</span>
@@ -53,7 +56,7 @@
 			<div class="mdc-drawer__content">
 				<nav class="mdc-list">
 					{{#each pages as |page|}}
-						<a id="{{page.id}}" class="mdc-list-item {{#if page.active}}mdc-list-item--activated{{/if}}" href="#" aria-current="page">
+						<a class="mdc-list-item {{#if page.active}}mdc-list-item--activated{{/if}}" href="#" data-slug="{{page.slug}}" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">{{page.icon}}</i>
 							<span class="mdc-list-item__text">{{page.name}}</span>
@@ -66,10 +69,11 @@
 
 		<div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
 			<main class="main-content">
-				{{{body}}}
+				{{> body}}
 			</main>
 		</div>
 
-		<script src="./main.js"></script>
+		<script src="./scripts/main.js"></script>
+		<script src="./scripts/{{id}}.js"></script>
 	</body>
 </html>

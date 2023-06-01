@@ -1,0 +1,47 @@
+<div class="mdc-card contact-message mdc-elevation--z3">
+	<div class="mdc-card__primary-action">
+		<div class="mdc-card__content">
+			<p class="mdc-typography--headline6">Interested in working together? Email me at <a href="mailto:joshua.mayberry1991@gmail.com">joshua.mayberry1991@gmail.com</a></p>
+				<button class="mdc-button mdc-button--raised" onclick="location.href='mailto:joshua.mayberry1991@gmail.com?subject=Interested%20in%20your%20work&body=Hello%20Joshua,%0D%0A%0D%0AI%27m%20interested%20in%20working%20together.%20Could%20we%20discuss%20further?%0D%0A%0D%0ARegards,%0D%0A[Your Name]'">
+				<div class="mdc-button__ripple"></div>
+				<span class="mdc-button__label">Send an Email</span>
+			</button>
+		</div>
+	</div>
+</div>
+	
+<div class="glide">
+	<div class="glide__track" data-glide-el="track">
+		<ul class="glide__slides">
+			{{#each linkedin_posts}}
+				<li class="glide__slide">
+					<div class="mdc-card mdc-elevation--z3">
+						<div class="mdc-card__primary-action">
+							<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:{{urn}}" frameborder="0" allowfullscreen="" title="{{title}}"></iframe>
+						</div>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+
+	<div class="glide__arrows" data-glide-el="controls">
+		<div class="mdc-touch-target-wrapper">
+			<button class="mdc-fab mdc-fab--mini mdc-fab--touch glide__arrow glide__arrow--left" data-glide-dir="<">
+				<div class="mdc-fab__ripple"></div>
+				<span class="material-icons mdc-fab__icon">chevron_left</span>
+				<div class="mdc-fab__touch"></div>
+			</button>
+		</div>
+
+		<div class="mdc-touch-target-wrapper">
+			<button class="mdc-fab mdc-fab--mini mdc-fab--touch glide__arrow glide__arrow--right" data-glide-dir=">">
+				<div class="mdc-fab__ripple"></div>
+				<span class="material-icons mdc-fab__icon">chevron_right</span>
+				<div class="mdc-fab__touch"></div>
+			</button>
+		</div>
+	</div>
+</div>
+
+<div class="loader" id="loader"></div>

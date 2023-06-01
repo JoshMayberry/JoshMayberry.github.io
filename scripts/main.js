@@ -23,9 +23,12 @@ const catalogue_location = {
 function initialize_appBar() {
 	new mdc.topAppBar.MDCTopAppBar(document.querySelector(".mdc-top-app-bar"));
 	
-	for (const element_button of document.querySelectorAll(".mdc-button")) {
-		// See: https://m2.material.io/components/buttons/web#using-buttons
-		new mdc.ripple.MDCRipple(element_button);
+	for (const selector of [".mdc-button", ".mdc-fab"]) {
+		for (const element_button of document.querySelectorAll(selector)) {
+			// See: https://m2.material.io/components/buttons/web#using-buttons
+			// See: https://m2.material.io/components/buttons-floating-action-button/web#using-fabs
+			new mdc.ripple.MDCRipple(element_button);
+		}
 	}
 
 	/**
@@ -36,9 +39,10 @@ function initialize_appBar() {
 	const tabBar = new mdc.tabBar.MDCTabBar(document.querySelector(".mdc-tab-bar"));
 
 	tabBar.listen('MDCTabBar:activated', function(event) {
-		setTimeout(function() {
-			const location = catalogue_location[event.detail.index];
+		const slug = event.target.querySelector(".mdc-tab-scroller__scroll-content").children[event.detail.index].dataset.slug
 
+		setTimeout(function() {
+			const location = `./${slug}.html`;
 			if (!window.location.pathname.endsWith(location)) {
 				window.location.href = location;
 			}
@@ -81,22 +85,22 @@ function initialize_appBar() {
 			delay: 0.1,
 			ease: "back.out(1.7)"
 		});
-
-		const tabTexts = document.querySelectorAll(".mdc-tab");
-		const animations = [];
-
-		tabTexts.forEach((tab, i) => {
-			animations[i] = gsap.to(tab, {
-				paused: true,
-				y: -10,
-				duration: 0.3,
-				ease: "power2.out",
-			});
-
-			tab.addEventListener("mouseenter", () => animations[i].play());
-			tab.addEventListener("mouseleave", () => animations[i].reverse());
-		});
 	}
+
+	const tabTexts = document.querySelectorAll(".mdc-tab");
+	const animations = [];
+
+	tabTexts.forEach((tab, i) => {
+		animations[i] = gsap.to(tab, {
+			paused: true,
+			y: -10,
+			duration: 0.3,
+			ease: "power2.out",
+		});
+
+		tab.addEventListener("mouseenter", () => animations[i].play());
+		tab.addEventListener("mouseleave", () => animations[i].reverse());
+	});
 }
 
 /**
@@ -130,9 +134,11 @@ function initialize_drawer() {
 				return;
 			}
 
+			const slug = event.target.parentNode.dataset.slug
+
 			// Delay navigation until drawer is closed
 			setTimeout(function() {
-				window.location.href = catalogue_location[index];
+				window.location.href = `./${slug}.html`;
 			}, 250);
 		});
 	});

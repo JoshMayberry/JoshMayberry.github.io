@@ -1,5 +1,35 @@
+/*
+ * Sets a variable in css. This is a patch for a bug with sass-lint.
+ * Use: https://github.com/sasstools/sass-lint/issues/1161#issuecomment-390537190
+ *
+ * Example Use: @include set-var(--column-group--width-min, 5em);
+ * Is the same as: --column-group--width-min: 5em;
+ */
+@mixin set-var($prop: null, $value: null) {
+	@if ($prop and $value) {
+		#{$prop}: $value;
+	}
+}
+
+// See: https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme#css-custom-properties
+:root {
+	@include set-var(--mdc-theme-primary, #2196f3);
+	@include set-var(--mdc-theme-secondary, #FF9800);
+}
+
 body {
 	margin: 0;
+}
+
+.mdc-drawer-app-content.mdc-top-app-bar--fixed-adjust {
+	height: calc(100vh - 64px);
+}
+
+.main-content {
+	position: relative;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
 }
 
 #menu-button {

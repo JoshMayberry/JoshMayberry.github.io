@@ -5,8 +5,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="./main.css">
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="stylesheet" href="./styles/.css">
+    	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1"></script>
 		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 	</head>
@@ -25,7 +28,7 @@
 							<div class="mdc-tab-scroller">
 								<div class="mdc-tab-scroller__scroll-area">
 									<div class="mdc-tab-scroller__scroll-content">
-											<button class="mdc-tab " role="tab" tabindex="-1">
+											<button class="mdc-tab " role="tab" data-slug="index" tabindex="-1">
 												<span class="mdc-tab__content">
 													<span class="mdc-tab__text-label">Home</span>
 												</span>
@@ -34,16 +37,16 @@
 												</span>
 												<span class="mdc-tab__ripple"></span>
 											</button>
-											<button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+											<button class="mdc-tab " role="tab" data-slug="resume" tabindex="-1">
 												<span class="mdc-tab__content">
-													<span class="mdc-tab__text-label">About</span>
+													<span class="mdc-tab__text-label">Resume</span>
 												</span>
-												<span class="mdc-tab-indicator mdc-tab-indicator--active">
+												<span class="mdc-tab-indicator ">
 													<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
 												</span>
 												<span class="mdc-tab__ripple"></span>
 											</button>
-											<button class="mdc-tab " role="tab" tabindex="-1">
+											<button class="mdc-tab " role="tab" data-slug="portfolio" tabindex="-1">
 												<span class="mdc-tab__content">
 													<span class="mdc-tab__text-label">Portfolio</span>
 												</span>
@@ -52,7 +55,16 @@
 												</span>
 												<span class="mdc-tab__ripple"></span>
 											</button>
-											<button class="mdc-tab " role="tab" tabindex="-1">
+											<button class="mdc-tab mdc-tab--active" role="tab" data-slug="about" aria-selected="true" tabindex="0">
+												<span class="mdc-tab__content">
+													<span class="mdc-tab__text-label">About</span>
+												</span>
+												<span class="mdc-tab-indicator mdc-tab-indicator--active">
+													<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+												</span>
+												<span class="mdc-tab__ripple"></span>
+											</button>
+											<button class="mdc-tab " role="tab" data-slug="contact" tabindex="-1">
 												<span class="mdc-tab__content">
 													<span class="mdc-tab__text-label">Contact</span>
 												</span>
@@ -77,22 +89,27 @@
 		<aside class="mdc-drawer mdc-drawer--modal">
 			<div class="mdc-drawer__content">
 				<nav class="mdc-list">
-						<a id="index" class="mdc-list-item " href="#" aria-current="page">
+						<a class="mdc-list-item " href="#" data-slug="index" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
 							<span class="mdc-list-item__text">Home</span>
 						</a>
-						<a id="about" class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+						<a class="mdc-list-item " href="#" data-slug="resume" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
-							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i>
-							<span class="mdc-list-item__text">About</span>
+							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+							<span class="mdc-list-item__text">Resume</span>
 						</a>
-						<a id="portfolio" class="mdc-list-item " href="#" aria-current="page">
+						<a class="mdc-list-item " href="#" data-slug="portfolio" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">work</i>
 							<span class="mdc-list-item__text">Portfolio</span>
 						</a>
-						<a id="contact" class="mdc-list-item " href="#" aria-current="page">
+						<a class="mdc-list-item mdc-list-item--activated" href="#" data-slug="about" aria-current="page">
+							<span class="mdc-list-item__ripple"></span>
+							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i>
+							<span class="mdc-list-item__text">About</span>
+						</a>
+						<a class="mdc-list-item " href="#" data-slug="contact" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail</i>
 							<span class="mdc-list-item__text">Contact</span>
@@ -108,6 +125,7 @@
 			</main>
 		</div>
 
-		<script src="./main.js"></script>
+		<script src="./scripts/main.js"></script>
+		<script src="./scripts/.js"></script>
 	</body>
 </html>
