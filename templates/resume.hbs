@@ -1,1 +1,85 @@
-<h1>TODO: Resume</h1>
+{{!-- 
+
+	GPT4 Prompt
+		Let's add another section called "Resume".
+		Do not give me the entire webpage- just the relevant sections that have been changed.
+		Do not generate anything yet. Reply with "ready" if you understand.
+
+
+		Give me the changes to the navigation for the new page.
+
+
+		The HTML will be in a handlebars file, so we can make use of a loop with an array to populate the tabbar.
+		Implement that.
+
+
+		Lets generate the content for the work experience section.
+		Use a `MDCList` to contain each item.
+
+
+		The html file will be a handlebars file, so we can make use of loops to generate the list items.
+		Convert the html to a handlebars loop.
+ --}}
+
+<div id="resume-section-tabbar" class="mdc-tab-bar" role="tablist">
+	<div class="mdc-tab-scroller">
+		<div class="mdc-tab-scroller__scroll-area">
+			<div class="mdc-tab-scroller__scroll-content">
+				{{#each sections}}
+					<button class="mdc-tab {{#if @first}}mdc-tab--active{{/if}}" role="tab" aria-selected="{{#if @first}}true{{else}}false{{/if}}" tabindex="{{#if @first}}0{{else}}-1{{/if}}">
+						<span class="mdc-tab__content">
+							<span class="mdc-tab__text-label">{{this}}</span>
+						</span>
+						<span class="mdc-tab-indicator {{#if @first}}mdc-tab-indicator--active{{/if}}">
+							<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+						</span>
+						<span class="mdc-tab__ripple"></span>
+					</button>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="work-experience" class="resume-section">
+	<ul class="mdc-list mdc-list--two-line" role="listbox">
+		{{#each workExperience}}
+			<li class="mdc-list-item resume-list-item" id="work-experience-{{@index}}">
+				<span class="mdc-list-item__ripple"></span>
+				<span class="mdc-list-item__text">
+					<span class="mdc-list-item__primary-text">{{this.title}}, {{this.company}}</span>
+					<span class="mdc-list-item__secondary-text">
+						{{this.start}} - {{this.end}} | {{this.position}}
+						<br>
+						{{this.description}}
+					</span>
+				</span>
+			</li>
+		{{/each}}
+	</ul>
+
+	<div class="mdc-dialog" id="work-experience-dialog">
+		<div class="mdc-dialog__container">
+			<div class="mdc-dialog__surface">
+				<!-- Title cannot scroll -->
+				<h2 class="mdc-dialog__title"></h2>
+				<!-- Body can scroll -->
+				<div class="mdc-dialog__content"></div>
+				<footer class="mdc-dialog__actions">
+					<button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+						<div class="mdc-button__ripple"></div>
+						<span class="mdc-button__label">Close</span>
+					</button>
+				</footer>
+			</div>
+		</div>
+		<div class="mdc-dialog__scrim"></div>
+	</div>
+</div>
+
+<div id="skills" class="resume-section" style="display: none;">
+	<div id="skills-bubble-chart"></div>
+</div>
+
+<div id="education" class="resume-section" style="display: none;">
+</div>

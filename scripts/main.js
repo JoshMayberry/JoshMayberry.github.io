@@ -1,8 +1,11 @@
-const catalogue_location = {
-	0: "./index.html",
-	1: "./about.html",
-	2: "./portfolio.html",
-	3: "./contact.html",
+function initialize_common() {
+	for (const selector of [".mdc-button", ".mdc-fab"]) {
+		for (const element_button of document.querySelectorAll(selector)) {
+			// See: https://m2.material.io/components/buttons/web#using-buttons
+			// See: https://m2.material.io/components/buttons-floating-action-button/web#using-fabs
+			new mdc.ripple.MDCRipple(element_button);
+		}
+	}
 }
 
 /**
@@ -21,24 +24,17 @@ const catalogue_location = {
  *     To do this, only use CSS Media Queries (The navbar/menu icon can be hidden using display: none).
  */
 function initialize_appBar() {
-	new mdc.topAppBar.MDCTopAppBar(document.querySelector(".mdc-top-app-bar"));
-	
-	for (const selector of [".mdc-button", ".mdc-fab"]) {
-		for (const element_button of document.querySelectorAll(selector)) {
-			// See: https://m2.material.io/components/buttons/web#using-buttons
-			// See: https://m2.material.io/components/buttons-floating-action-button/web#using-fabs
-			new mdc.ripple.MDCRipple(element_button);
-		}
-	}
+	const element_appBar = document.querySelector(".mdc-top-app-bar");
+	new mdc.topAppBar.MDCTopAppBar(element_appBar);
 
 	/**
 	 * GPT4 Prompt
 	 *     Add an event to the navbar that directs the user to the specific page.
 	 *     Wait for the animation with the `mdc-tab-indicator` to finish.
 	 */
-	const tabBar = new mdc.tabBar.MDCTabBar(document.querySelector(".mdc-tab-bar"));
+	const tabBar = new mdc.tabBar.MDCTabBar(element_appBar.querySelector(".mdc-tab-bar"));
 
-	tabBar.listen('MDCTabBar:activated', function(event) {
+	tabBar.listen("MDCTabBar:activated", function(event) {
 		const slug = event.target.querySelector(".mdc-tab-scroller__scroll-content").children[event.detail.index].dataset.slug
 
 		setTimeout(function() {
@@ -87,7 +83,7 @@ function initialize_appBar() {
 		});
 	}
 
-	const tabTexts = document.querySelectorAll(".mdc-tab");
+	const tabTexts = element_appBar.querySelectorAll(".mdc-tab");
 	const animations = [];
 
 	tabTexts.forEach((tab, i) => {
@@ -118,7 +114,8 @@ function initialize_appBar() {
  *     If the user clicks on one of the drawer items, close the drawer and when the animation has finished navigate to the selected page- unless the user clicks on the current page, in which case just close the drawer.
  */
 function initialize_drawer() {
-	const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector(".mdc-drawer"));
+	const element_drawer = document.querySelector(".mdc-drawer");
+	const drawer = mdc.drawer.MDCDrawer.attachTo(element_drawer);
 
 	// Toggle drawer when menu button is clicked
 	document.querySelector("#menu-button").addEventListener("click", function () {
@@ -126,7 +123,7 @@ function initialize_drawer() {
 	});
 
 	// Close drawer and navigate when a drawer item is clicked
-	const listItems = document.querySelectorAll(".mdc-list-item");
+	const listItems = element_drawer.querySelectorAll(".mdc-list-item");
 	listItems.forEach(function(element, index) {
 		element.addEventListener("click", function() {
 			drawer.open = false;
@@ -144,7 +141,7 @@ function initialize_drawer() {
 	});
 
 	// GSAP animations for the drawer items
-	const drawerTexts = document.querySelectorAll(".mdc-drawer .mdc-list-item");
+	const drawerTexts = element_drawer.querySelectorAll(".mdc-list-item");
 	const animations = [];
 
 	drawerTexts.forEach((text, i) => {
@@ -162,6 +159,7 @@ function initialize_drawer() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+	initialize_common();
 	initialize_appBar();
 	initialize_drawer();
 	

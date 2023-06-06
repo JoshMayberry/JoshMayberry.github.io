@@ -8,10 +8,11 @@
 		<link href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="./styles/main.css">
-		<link rel="stylesheet" href="./styles/.css">
+		<link rel="stylesheet" href="./styles/resume.css">
     	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1"></script>
 		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
 	</head>
 	<body class="mdc-typography">
 		<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
@@ -121,11 +122,153 @@
 
 		<div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
 			<main class="main-content">
-				<h1>TODO: Resume</h1>
+				
+				<div id="resume-section-tabbar" class="mdc-tab-bar" role="tablist">
+					<div class="mdc-tab-scroller">
+						<div class="mdc-tab-scroller__scroll-area">
+							<div class="mdc-tab-scroller__scroll-content">
+									<button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+										<span class="mdc-tab__content">
+											<span class="mdc-tab__text-label">Work Experience</span>
+										</span>
+										<span class="mdc-tab-indicator mdc-tab-indicator--active">
+											<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+										</span>
+										<span class="mdc-tab__ripple"></span>
+									</button>
+									<button class="mdc-tab " role="tab" aria-selected="false" tabindex="-1">
+										<span class="mdc-tab__content">
+											<span class="mdc-tab__text-label">Skills</span>
+										</span>
+										<span class="mdc-tab-indicator ">
+											<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+										</span>
+										<span class="mdc-tab__ripple"></span>
+									</button>
+									<button class="mdc-tab " role="tab" aria-selected="false" tabindex="-1">
+										<span class="mdc-tab__content">
+											<span class="mdc-tab__text-label">Education</span>
+										</span>
+										<span class="mdc-tab-indicator ">
+											<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+										</span>
+										<span class="mdc-tab__ripple"></span>
+									</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="work-experience" class="resume-section">
+					<ul class="mdc-list mdc-list--two-line" role="listbox">
+							<li class="mdc-list-item resume-list-item" id="work-experience-0">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">Full Stack Developer, Vineyards MG</span>
+									<span class="mdc-list-item__secondary-text">
+										May 2023 - Present | Lead Developer
+										<br>
+										Implement, maintain, and troubleshoot processes to daily and automatically collect data from various API sources and store it in an optimized PostgreSQL database. Develop and deploy connectors for gathering and displaying that data in the form of Custom Power BI Visuals, Custom Formsite widgets, Zapier python modifiers, Retool apps. Manage communicating priorities to 3 developers across the world; being available to them to help with difficulties and relaying their progress, requests, and concerns to the department head.
+									</span>
+								</span>
+							</li>
+							<li class="mdc-list-item resume-list-item" id="work-experience-1">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">Technology Applications Engineer, Decatur Mold</span>
+									<span class="mdc-list-item__secondary-text">
+										May 2018 - Feb 2021 | Full Stack Development and Technology Integration
+										<br>
+										Implement, maintain, and troubleshoot technologies that increase work efficiency, allow data exploration from multiple sources, alert users of possible issues, help comply with CMMC, or automate repetitive tasks. All applications must be reliable and easily used by even the most technologically challenged. Some applications to do this were a NodeJS Intranet site (with JavaScript, HTML, and CSS), Automated emails, Python programs, SalesForce, Excel Power Queries, Dundas BI Dashboards, and a bar-coded inventory. Use Trello cards to implement a ticketing system for all projects.
+									</span>
+								</span>
+							</li>
+							<li class="mdc-list-item resume-list-item" id="work-experience-2">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">Controls Engineer, Valeo</span>
+									<span class="mdc-list-item__secondary-text">
+										Aug 2016 - May 2018 | Programming Robots and Logic Controllers
+										<br>
+										Program, maintain, and troubleshoot automated manufacturing systems using a combination of the following: Siemens PLC and HMI, Motoman robots, BOA cameras, Cognex cameras, ASG screwdrivers, Intelliaim, Python programs I write myself, Various digital and analog sensors.
+									</span>
+								</span>
+							</li>
+							<li class="mdc-list-item resume-list-item" id="work-experience-3">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">Numerical Methods TA, BYU-Idaho</span>
+									<span class="mdc-list-item__secondary-text">
+										2016 - 2016 | Python Programming Tutor
+										<br>
+										Helped students create programs using python that would find the roots of equations, solve differential equations, create curve fits for data, and analyze digital images. I would also grade assignments and projects.
+									</span>
+								</span>
+							</li>
+							<li class="mdc-list-item resume-list-item" id="work-experience-4">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">STEM Instructor, Boys and Girls Club</span>
+									<span class="mdc-list-item__secondary-text">
+										2015 - 2015 | STEM Guy
+										<br>
+										Visited one of five clubs each day to do STEM activities with underprivileged children. Some of these activities included creating basic pneumatic robotics, object orient programming with Game Maker, soldering, snap circuits, rain gutter regattas, and owl pellet dissection.
+									</span>
+								</span>
+							</li>
+							<li class="mdc-list-item resume-list-item" id="work-experience-5">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">Engineering Intern, Highland West Energy and Mountain West Mechanical</span>
+									<span class="mdc-list-item__secondary-text">
+										2014 - 2014 | Internship
+										<br>
+										Designed a Waste-to-Energy plant from the ground up, gathered data for &amp; simulated feasibility studies for CHP units in over 15 different buildings, and did takeoffs and submittals for two major construction projects during my time as an intern.
+									</span>
+								</span>
+							</li>
+							<li class="mdc-list-item resume-list-item" id="work-experience-6">
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">
+									<span class="mdc-list-item__primary-text">CAD Designer, Emergency Zone</span>
+									<span class="mdc-list-item__secondary-text">
+										2013 - 2013 | Product Design
+										<br>
+										Primary CAD designer for three products for the companies Emergency Zone and Intermountain Brands. These include two stoves and a baby formula container. All three are in production by factories overseas.
+									</span>
+								</span>
+							</li>
+					</ul>
+				
+					<div class="mdc-dialog" id="work-experience-dialog">
+						<div class="mdc-dialog__container">
+							<div class="mdc-dialog__surface">
+								<!-- Title cannot scroll -->
+								<h2 class="mdc-dialog__title"></h2>
+								<!-- Body can scroll -->
+								<div class="mdc-dialog__content"></div>
+								<footer class="mdc-dialog__actions">
+									<button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+										<div class="mdc-button__ripple"></div>
+										<span class="mdc-button__label">Close</span>
+									</button>
+								</footer>
+							</div>
+						</div>
+						<div class="mdc-dialog__scrim"></div>
+					</div>
+				</div>
+				
+				<div id="skills" class="resume-section" style="display: none;">
+					<div id="skills-bubble-chart"></div>
+				</div>
+				
+				<div id="education" class="resume-section" style="display: none;">
+				</div>
 			</main>
 		</div>
 
 		<script src="./scripts/main.js"></script>
-		<script src="./scripts/.js"></script>
+		<script src="./scripts/resume.js"></script>
 	</body>
 </html>
