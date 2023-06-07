@@ -1,3 +1,8 @@
+import {
+	initialize_all as initialize_skills,
+	refresh_skills,
+} from "./resume-skills.js"
+
 function initialize_resumeTabBar() {
 	const tabBar = new mdc.tabBar.MDCTabBar(document.getElementById("resume-section-tabbar"));
 	const resumeSections = Array.from(document.querySelectorAll(".resume-section"));
@@ -28,7 +33,7 @@ function initialize_workExperience() {
 	const dialog = new mdc.dialog.MDCDialog(document.querySelector(".mdc-dialog"));
 
 	// Attach click event listener to each list item
-	const workExperienceItems = document.querySelectorAll(".resume-list-item");
+	const workExperienceItems = document.querySelectorAll("#work-experience .resume-list-item");
 	workExperienceItems.forEach(item => {
 		item.addEventListener("click", () => {
 			// Set the dialog title and content according to the clicked item
@@ -44,11 +49,6 @@ function initialize_workExperience() {
 		});
 	});
 }
-
-import {
-	initialize_all as initialize_skills,
-	refresh_skills,
-} from "./resume-skills.js"
 
 document.addEventListener("DOMContentLoaded", () => {
 	initialize_resumeTabBar();

@@ -17,6 +17,9 @@
 		Use a `MDCList` to contain each item.
 
 
+		Lets generate the content for the education section (Combine education and certificates into the same tab).
+
+
 		The html file will be a handlebars file, so we can make use of loops to generate the list items.
 		Convert the html to a handlebars loop.
  --}}
@@ -79,33 +82,81 @@
 
 <div id="skills" class="resume-section" style="display: none;">
 	<button id="skills-group-button" class="mdc-fab" aria-label="Open menu">
-		<span class="mdc-fab__icon material-icons">menu</span>
+		<span class="mdc-fab__icon material-icons">colorize</span>
 	</button>
 
 	<div id="skills-group-menu" class="mdc-menu mdc-menu-surface" tabindex="-1">
 		<ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
 			<li class="mdc-list-item selected" role="menuitem">
+				<span class="mdc-list-item__ripple"></span>
 				<span class="mdc-list-item__text">Category</span>
 			</li>
 			<li class="mdc-list-item" role="menuitem">
+				<span class="mdc-list-item__ripple"></span>
 				<span class="mdc-list-item__text">Skill Type</span>
 			</li>
 			<li class="mdc-list-item" role="menuitem">
+				<span class="mdc-list-item__ripple"></span>
 				<span class="mdc-list-item__text">Use Case</span>
 			</li>
 			<li class="mdc-list-item" role="menuitem">
+				<span class="mdc-list-item__ripple"></span>
 				<span class="mdc-list-item__text">Complexity</span>
 			</li>
 			<li class="mdc-list-item" role="menuitem">
-				<span class="mdc-list-item__text">Industry Relevance</span>
+				<span class="mdc-list-item__ripple"></span>
+				<span class="mdc-list-item__text">Industry</span>
 			</li>
 			<li class="mdc-list-item" role="menuitem">
+				<span class="mdc-list-item__ripple"></span>
 				<span class="mdc-list-item__text">Primary Language</span>
 			</li>
 		</ul>
 	</div>
+	
 	<div id="skills-bubble-chart"></div>
+
+	<div id="skills-bubble-popup" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+	<div class="mdc-dialog__container">
+		<div class="mdc-dialog__surface">
+			<!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+			<h2 class="mdc-dialog__title"></h2>
+			<div class="mdc-dialog__content"></div>
+			<footer class="mdc-dialog__actions">
+				<button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+					<span class="mdc-button__label">Close</span>
+				</button>
+			</footer>
+		</div>
+	</div>
+	<div class="mdc-dialog__scrim"></div>
+</div>
 </div>
 
 <div id="education" class="resume-section" style="display: none;">
+
+	<ul class="mdc-list mdc-list--two-line">
+		{{#each education}}
+		<li class="mdc-list-item resume-list-item">
+			<span class="mdc-list-item__ripple"></span>
+			<span class="mdc-list-item__text">
+				<span class="mdc-list-item__primary-text">{{this.degree}}, {{this.institution}}</span>
+				<span class="mdc-list-item__secondary-text">{{this.duration}}</span>
+			</span>
+		</li>
+		{{/each}}
+
+		{{#each certificates}}
+		<li class="mdc-list-item resume-list-item">
+			<span class="mdc-list-item__ripple"></span>
+			<span class="mdc-list-item__text">
+				<span class="mdc-list-item__primary-text">{{this.name}}</span>
+				<span class="mdc-list-item__secondary-text">{{this.institution}}, {{this.date}}</span>
+			</span>
+			<div class="mdc-list-item__meta">
+				<a href="{{this.link}}" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
 </div>

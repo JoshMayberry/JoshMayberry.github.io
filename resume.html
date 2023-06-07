@@ -261,35 +261,149 @@
 				
 				<div id="skills" class="resume-section" style="display: none;">
 					<button id="skills-group-button" class="mdc-fab" aria-label="Open menu">
-						<span class="mdc-fab__icon material-icons">menu</span>
+						<span class="mdc-fab__icon material-icons">colorize</span>
 					</button>
 				
 					<div id="skills-group-menu" class="mdc-menu mdc-menu-surface" tabindex="-1">
 						<ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
 							<li class="mdc-list-item selected" role="menuitem">
+								<span class="mdc-list-item__ripple"></span>
 								<span class="mdc-list-item__text">Category</span>
 							</li>
 							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__ripple"></span>
 								<span class="mdc-list-item__text">Skill Type</span>
 							</li>
 							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__ripple"></span>
 								<span class="mdc-list-item__text">Use Case</span>
 							</li>
 							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__ripple"></span>
 								<span class="mdc-list-item__text">Complexity</span>
 							</li>
 							<li class="mdc-list-item" role="menuitem">
-								<span class="mdc-list-item__text">Industry Relevance</span>
+								<span class="mdc-list-item__ripple"></span>
+								<span class="mdc-list-item__text">Industry</span>
 							</li>
 							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__ripple"></span>
 								<span class="mdc-list-item__text">Primary Language</span>
 							</li>
 						</ul>
 					</div>
+					
 					<div id="skills-bubble-chart"></div>
+				
+					<div id="skills-bubble-popup" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+					<div class="mdc-dialog__container">
+						<div class="mdc-dialog__surface">
+							<!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+							<h2 class="mdc-dialog__title"></h2>
+							<div class="mdc-dialog__content"></div>
+							<footer class="mdc-dialog__actions">
+								<button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+									<span class="mdc-button__label">Close</span>
+								</button>
+							</footer>
+						</div>
+					</div>
+					<div class="mdc-dialog__scrim"></div>
+				</div>
 				</div>
 				
 				<div id="education" class="resume-section" style="display: none;">
+				
+					<ul class="mdc-list mdc-list--two-line">
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Bachelors of Science in Mechanical Engineering, BYU-Idaho</span>
+								<span class="mdc-list-item__secondary-text">2010-2011, 2013-2016</span>
+							</span>
+						</li>
+				
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">SolidWorks Associate - Mechanical Design</span>
+								<span class="mdc-list-item__secondary-text">Dassault Systems, 22 Nov 2014</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="/assets/CAD_Certificate.png" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">SolidWorks Associate - Simulation</span>
+								<span class="mdc-list-item__secondary-text">Dassault Systems, 22 Nov 2014</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="/assets/FEA_Certificate.png" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Getting Started with Python</span>
+								<span class="mdc-list-item__secondary-text">University of Michigan, 10 June 2016</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="https://www.coursera.org/account/accomplishments/certificate/9H4XRQ6MNL3Y" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Python Data Structures</span>
+								<span class="mdc-list-item__secondary-text">University of Michigan, 21 July 2016</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="https://www.coursera.org/account/accomplishments/certificate/RN4JHMD4HEZW" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Using Python to Access Web Data</span>
+								<span class="mdc-list-item__secondary-text">University of Michigan, 26 February 2017</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="https://www.coursera.org/account/accomplishments/certificate/9H4XRQ6MNL3Y" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Using Databases with Python</span>
+								<span class="mdc-list-item__secondary-text">University of Michigan, 28 April 2017</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="https://www.coursera.org/account/accomplishments/certificate/QQYW55DQ476C" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Android Basics Nanodegree</span>
+								<span class="mdc-list-item__secondary-text">Udacity, 8 January 2019</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="https://www.udemy.com/certificate/UC-94KYPVLK/" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+						<li class="mdc-list-item resume-list-item">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__text">
+								<span class="mdc-list-item__primary-text">Microsoft Power BI</span>
+								<span class="mdc-list-item__secondary-text">Udemy, 13 Aug 2019</span>
+							</span>
+							<div class="mdc-list-item__meta">
+								<a href="" target="_blank" class="mdc-icon-button material-icons" aria-label="View certificate" title="View certificate">launch</a>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</main>
 		</div>
