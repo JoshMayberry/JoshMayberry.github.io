@@ -12,8 +12,7 @@ function initialize_resumeTabBar() {
 
 			switch (section.id) {
 				case "skills":
-					skills_updateWords();
-					skills_updateDimensions();
+					refresh_skills();
 					break;
 			}
 		});
@@ -46,7 +45,10 @@ function initialize_workExperience() {
 	});
 }
 
-import { initialize_skills } from "./resume-skills.js"
+import {
+	initialize_all as initialize_skills,
+	refresh_skills,
+} from "./resume-skills.js"
 
 document.addEventListener("DOMContentLoaded", () => {
 	initialize_resumeTabBar();

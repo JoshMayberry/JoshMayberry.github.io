@@ -13,9 +13,22 @@
   word-wrap: break-word;
 }
 
+#skills-group-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+#skills-group-menu .selected {
+  color: #6200ee; /* Change the color to indicate selection */
+}
+
 #skills-bubble-chart {
   flex: 1;
   overflow: hidden;
+}
+#skills-bubble-chart text {
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=resume.css.map */

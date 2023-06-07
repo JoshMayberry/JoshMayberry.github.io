@@ -245,7 +245,7 @@ const pageList = [
 ];
 
 for (const [index, page] of pageList.entries()) {
-	console.log(`Compiling ${page.slug}`);
+	console.log(`Compiling HBS ${page.slug}`);
 
 	const bodySource = fs.readFileSync(`${folderPath}/${page.slug}.hbs`, "utf8");
 	Handlebars.registerPartial("body", bodySource);
