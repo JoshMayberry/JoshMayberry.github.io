@@ -31,7 +31,13 @@ Handlebars.registerHelper("debug", function(optionalValue) {
 	}
 });
 
-const source = fs.readFileSync("./main.hbs", "utf8");
+const folderPath = ((require.main === module) ? "." : "./templates");
+const rootPath = ((require.main === module) ? ".." : ".");
+
+
+
+
+const source = fs.readFileSync(`${folderPath}/main.hbs`, "utf8");
 
 const pageList = [
 	{
@@ -241,7 +247,7 @@ const pageList = [
 for (const [index, page] of pageList.entries()) {
 	console.log(`Compiling ${page.slug}`);
 
-	const bodySource = fs.readFileSync(`./${page.slug}.hbs`, "utf8");
+	const bodySource = fs.readFileSync(`${folderPath}/${page.slug}.hbs`, "utf8");
 	Handlebars.registerPartial("body", bodySource);
 
 	const template = Handlebars.compile(source);
@@ -254,5 +260,5 @@ for (const [index, page] of pageList.entries()) {
 		})),
 	});
 
-	fs.writeFileSync(`../${page.slug}.html`, html);
+	fs.writeFileSync(`${rootPath}/${page.slug}.html`, html);
 }

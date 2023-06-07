@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node server-debug.js",
+    "watch": "nodemon server-debug.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

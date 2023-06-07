@@ -260,6 +260,29 @@
 				</div>
 				
 				<div id="skills" class="resume-section" style="display: none;">
+					<button id="skills-group-button" class="mdc-fab" aria-label="Open menu">
+						<span class="mdc-fab__icon material-icons">menu</span>
+					</button>
+				
+					<div class="mdc-menu mdc-menu-surface" tabindex="-1">
+						<ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__text">Category</span>
+							</li>
+							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__text">Skill Type</span>
+							</li>
+							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__text">Use Case</span>
+							</li>
+							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__text">Complexity</span>
+							</li>
+							<li class="mdc-list-item" role="menuitem">
+								<span class="mdc-list-item__text">Industry Relevance</span>
+							</li>
+						</ul>
+					</div>
 					<div id="skills-bubble-chart"></div>
 				</div>
 				
@@ -269,6 +292,6 @@
 		</div>
 
 		<script src="./scripts/main.js"></script>
-		<script src="./scripts/resume.js"></script>
+		<script src="./scripts/resume.js" type="module"></script>
 	</body>
 </html>
