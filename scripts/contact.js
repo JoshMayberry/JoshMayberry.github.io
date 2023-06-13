@@ -7,10 +7,10 @@ let glide = new Glide(".glide", {
 	// hoverpause: true,
 	animationDuration: 800,
 	breakpoints: {
-        1000: {
-            perView: 1,
-        },
-    },
+		1000: {
+			perView: 1,
+		},
+	},
 });
 
 let tl = gsap.timeline({
