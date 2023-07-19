@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Joshua Mayberry: Home</title>
+		<title>Joshua Mayberry: Call</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="./styles/main.css">
-		<link rel="stylesheet" href="./styles/index.css">
+		<link rel="stylesheet" href="./styles/who-is-calling-me.css">
     	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1"></script>
 		<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -21,7 +21,7 @@
 					<a id="logo" href="/index.html">
 						<img src="https://avatars.githubusercontent.com/u/11482252?s=96&amp;v=4" alt="@JoshMayberry" size="32" height="32" width="32">
 					</a>
-					<span id="page-title" class="mdc-top-app-bar__title">Home</span>
+					<span id="page-title" class="mdc-top-app-bar__title">Call</span>
 				</section>
 				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
 					<div id="navbar" role="toolbar">
@@ -29,11 +29,11 @@
 							<div class="mdc-tab-scroller">
 								<div class="mdc-tab-scroller__scroll-area">
 									<div class="mdc-tab-scroller__scroll-content">
-											<button class="mdc-tab mdc-tab--active" role="tab" data-slug="index" aria-selected="true" tabindex="0">
+											<button class="mdc-tab " role="tab" data-slug="index" tabindex="-1">
 												<span class="mdc-tab__content">
 													<span class="mdc-tab__text-label">Home</span>
 												</span>
-												<span class="mdc-tab-indicator mdc-tab-indicator--active">
+												<span class="mdc-tab-indicator ">
 													<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
 												</span>
 												<span class="mdc-tab__ripple"></span>
@@ -74,11 +74,11 @@
 												</span>
 												<span class="mdc-tab__ripple"></span>
 											</button>
-											<button class="mdc-tab " role="tab" data-slug="who-is-calling-me" tabindex="-1">
+											<button class="mdc-tab mdc-tab--active" role="tab" data-slug="who-is-calling-me" aria-selected="true" tabindex="0">
 												<span class="mdc-tab__content">
 													<span class="mdc-tab__text-label">Call</span>
 												</span>
-												<span class="mdc-tab-indicator ">
+												<span class="mdc-tab-indicator mdc-tab-indicator--active">
 													<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
 												</span>
 												<span class="mdc-tab__ripple"></span>
@@ -99,7 +99,7 @@
 		<aside class="mdc-drawer mdc-drawer--modal">
 			<div class="mdc-drawer__content">
 				<nav class="mdc-list">
-						<a class="mdc-list-item mdc-list-item--activated" href="#" data-slug="index" aria-current="page">
+						<a class="mdc-list-item " href="#" data-slug="index" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
 							<span class="mdc-list-item__text">Home</span>
@@ -124,7 +124,7 @@
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">mail</i>
 							<span class="mdc-list-item__text">Contact</span>
 						</a>
-						<a class="mdc-list-item " href="#" data-slug="who-is-calling-me" aria-current="page">
+						<a class="mdc-list-item mdc-list-item--activated" href="#" data-slug="who-is-calling-me" aria-current="page">
 							<span class="mdc-list-item__ripple"></span>
 							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">phone</i>
 							<span class="mdc-list-item__text">Call</span>
@@ -136,12 +136,13 @@
 
 		<div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
 			<main class="main-content">
-				<h1>Please Excuse our Dust</h1>
-				<p>This site is currently under construction. Feel free to poke around and see how it is coming along, and check back later so you can see the finished product!</p>
-			</main>
+				<img id="current-caller"></img>
+				<button id="call-from-lydia">Lydia</button>
+				<button id="call-from-evy">Evy</button>
+				<button id="call-stop">Stop</button>			</main>
 		</div>
 
 		<script src="./scripts/main.js"></script>
-		<script src="./scripts/index.js" type="module"></script>
+		<script src="./scripts/who-is-calling-me.js" type="module"></script>
 	</body>
 </html>

@@ -160,13 +160,13 @@ const pageList = [
 				name: "Android Basics Nanodegree",
 				institution: "Udacity",
 				date: "8 January 2019",
-				link: "https://www.udemy.com/certificate/UC-94KYPVLK/",
+				link: null,
 			},
 			{
 				name: "Microsoft Power BI",
 				institution: "Udemy",
 				date: "13 Aug 2019",
-				link: null,
+				link: "https://www.udemy.com/certificate/UC-94KYPVLK/",
 			},
 		],
 	},
@@ -218,6 +218,12 @@ const pageList = [
 				urn: "7069700427809734656",
 			},
 		],
+	},
+
+	{
+		name: "Call",
+		slug: "who-is-calling-me",
+		icon: "phone",
 	},
 ];
 
